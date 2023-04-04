@@ -22,6 +22,22 @@
   behaviors {
     #include "macros.dtsi"
 
+    bs_tilde: backslash_tilde {
+        compatible = "zmk,behavior-mod-morph";
+        label = "BACKSLASH_TILDE";
+        #binding-cells = <0>;
+        bindings = <&kp BACKSLASH>, <&kp TILDE>;
+        mods = <(MOD_RCTL)>;
+    };
+
+    quote_grave: quote_grave {
+        compatible = "zmk,behavior-mod-morph";
+        label = "QUOTE_GRAVE";
+        #binding-cells = <0>;
+        bindings = <&kp SINGLE_QUOTE>, <&kp GRAVE>;
+        mods = <(MOD_RCTL)>;
+    };
+
     hm: homerow_mods {
         compatible = "zmk,behavior-hold-tap";
         label = "HOMEROW_MODS";
@@ -40,8 +56,8 @@
         default_layer {
             bindings = <
  &kp EQUAL            &kp N1     &kp N2      &kp N3     &kp N4  &kp N5              &tog 1                                                                                    &mo 3  &kp N6  &kp N7    &kp N8    &kp N9    &kp N0      &kp MINUS
-   &kp TAB  &kp SINGLE_QUOTE  &kp COMMA  &kp PERIOD      &kp P   &kp Y               &none                                                                                    &none   &kp F   &kp G     &kp C     &kp R     &kp L      &kp SLASH
-   &kp ESC             &kp A      &kp O       &kp E      &kp U   &kp I               &none  &kp LEFT_WIN  &kp LEFT_ALT   &none   &none  &kp RIGHT_ALT  &kp RIGHT_CONTROL      &none   &kp D   &kp H     &kp T     &kp N     &kp S  &kp BACKSLASH
+   &kp TAB      &quote_grave  &kp COMMA  &kp PERIOD      &kp P   &kp Y               &none                                                                                    &none   &kp F   &kp G     &kp C     &kp R     &kp L      &kp SLASH
+   &kp ESC             &kp A      &kp O       &kp E      &kp U   &kp I               &none  &kp LEFT_WIN  &kp LEFT_ALT   &none   &none  &kp RIGHT_ALT  &kp RIGHT_CONTROL      &none   &kp D   &kp H     &kp T     &kp N     &kp S      &bs_tilde
  &kp LSHFT     &kp SEMICOLON      &kp Q       &kp J      &kp K   &kp X               &none         &none      &kp HOME   &none   &none      &kp PG_UP              &none      &none   &kp B   &kp M     &kp W     &kp V     &kp Z      &kp RSHFT
      &mo 2         &kp GRAVE   &kp CAPS    &kp LEFT  &kp RIGHT                    &kp BSPC       &kp DEL       &kp END                      &kp PG_DN          &kp ENTER  &kp SPACE          &kp UP  &kp DOWN  &kp LBKT  &kp RBKT          &mo 2
             >;

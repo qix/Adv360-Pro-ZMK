@@ -22,6 +22,36 @@
   behaviors {
     #include "macros.dtsi"
 
+    e_lbkt: e_lbkt {
+        compatible = "zmk,behavior-mod-morph";
+        label = "E_LBKT";
+        #binding-cells = <0>;
+        bindings = <&kp E>, <&kp LEFT_BRACKET>;
+        mods = <(MOD_RCTL)>;
+    };
+    u_rbkt: u_rbkt {
+        compatible = "zmk,behavior-mod-morph";
+        label = "U_RBKT";
+        #binding-cells = <0>;
+        bindings = <&kp U>, <&kp RIGHT_BRACKET>;
+        mods = <(MOD_RCTL)>;
+    };
+
+    h_lbrc: h_lbrace {
+        compatible = "zmk,behavior-mod-morph";
+        label = "h_lbrace";
+        #binding-cells = <0>;
+        bindings = <&kp H>, <&kp LEFT_BRACE>;
+        mods = <(MOD_LGUI)>;
+    };
+    t_rbrc: t_rbrace {
+        compatible = "zmk,behavior-mod-morph";
+        label = "t_rbrace";
+        #binding-cells = <0>;
+        bindings = <&kp T>, <&kp RIGHT_BRACE>;
+        mods = <(MOD_LGUI)>;
+    };
+
     bs_tilde: backslash_tilde {
         compatible = "zmk,behavior-mod-morph";
         label = "BACKSLASH_TILDE";
@@ -57,7 +87,7 @@
             bindings = <
  &kp EQUAL            &kp N1     &kp N2      &kp N3     &kp N4  &kp N5              &tog 1                                                                                    &mo 3  &kp N6  &kp N7    &kp N8    &kp N9    &kp N0      &kp MINUS
    &kp TAB      &quote_grave  &kp COMMA  &kp PERIOD      &kp P   &kp Y               &none                                                                                    &none   &kp F   &kp G     &kp C     &kp R     &kp L      &kp SLASH
-   &kp ESC             &kp A      &kp O       &kp E      &kp U   &kp I               &none  &kp LEFT_WIN  &kp LEFT_ALT   &none   &none  &kp RIGHT_ALT  &kp RIGHT_CONTROL      &none   &kp D   &kp H     &kp T     &kp N     &kp S      &bs_tilde
+   &kp ESC             &kp A      &kp O     &e_lbkt    &u_rbkt   &kp I               &none  &kp LEFT_WIN  &kp LEFT_ALT   &none   &none  &kp RIGHT_ALT  &kp RIGHT_CONTROL      &none   &kp D &h_lbrc   &t_rbrc     &kp N     &kp S      &bs_tilde
  &kp LSHFT     &kp SEMICOLON      &kp Q       &kp J      &kp K   &kp X               &none         &none      &kp HOME   &none   &none      &kp PG_UP              &none      &none   &kp B   &kp M     &kp W     &kp V     &kp Z      &kp RSHFT
      &mo 2         &kp GRAVE   &kp CAPS    &kp LEFT  &kp RIGHT                    &kp BSPC       &kp DEL       &kp END                      &kp PG_DN          &kp ENTER  &kp SPACE          &kp UP  &kp DOWN  &kp LBKT  &kp RBKT          &mo 2
             >;

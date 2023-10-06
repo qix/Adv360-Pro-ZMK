@@ -8,6 +8,52 @@
     behaviors {
       #include "macros.dtsi"
 
+      bs_tilde: backslash_tilde {
+          compatible = "zmk,behavior-mod-morph";
+          label = "BACKSLASH_TILDE";
+          #binding-cells = <0>;
+          bindings = <&kp BACKSLASH>, <&kp TILDE>;
+          mods = <(MOD_RCTL)>;
+      };
+ 
+      quote_grave: quote_grave {
+          compatible = "zmk,behavior-mod-morph";
+          label = "QUOTE_GRAVE";
+          #binding-cells = <0>;
+          bindings = <&kp SINGLE_QUOTE>, <&kp GRAVE>;
+          mods = <(MOD_RCTL)>;
+      };
+ 
+      e_lbkt: e_lbkt {
+          compatible = "zmk,behavior-mod-morph";
+          label = "E_LBKT";
+          #binding-cells = <0>;
+          bindings = <&kp E>, <&kp LEFT_BRACKET>;
+          mods = <(MOD_RCTL)>;
+      };
+      u_rbkt: u_rbkt {
+          compatible = "zmk,behavior-mod-morph";
+          label = "U_RBKT";
+          #binding-cells = <0>;
+          bindings = <&kp U>, <&kp RIGHT_BRACKET>;
+          mods = <(MOD_RCTL)>;
+      };
+  
+      h_lbrc: h_lbrace {
+          compatible = "zmk,behavior-mod-morph";
+          label = "h_lbrace";
+          #binding-cells = <0>;
+          bindings = <&kp H>, <&kp LEFT_BRACE>;
+          mods = <(MOD_LGUI)>;
+      };
+      t_rbrc: t_rbrace {
+          compatible = "zmk,behavior-mod-morph";
+          label = "t_rbrace";
+          #binding-cells = <0>;
+          bindings = <&kp T>, <&kp RIGHT_BRACE>;
+          mods = <(MOD_LGUI)>;
+      };
+     
       hm: homerow_mods {
           compatible = "zmk,behavior-hold-tap";
           label = "HOMEROW_MODS";
@@ -24,13 +70,14 @@
 
     default_layer {
       bindings = <
-        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &tog 1                                                           &mo 3 &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
-        &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                            &none &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
-        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
-        &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B                            &kp HOME &kp PG_UP                           &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp SPACE              &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 2
+        &kp EQUAL &kp N1        &kp N2    &kp N3     &kp N4  &kp N5 &tog 1                                                     &mo 3 &kp N6 &kp N7  &kp N8    &kp N9   &kp N0    &kp MINUS
+        &kp TAB   &quote_grave  &kp COMMA &kp PERIOD &kp P   &kp Y  &none                                                      &none &kp F  &kp G   &kp C     &kp R    &kp L     &kp SLASH
+        &kp ESC   &kp A         &kp O     &e_lbkt    &u_rbkt &kp I  &none      &kp LGUI &kp LALT &kp RALT &kp RCTRL            &none &kp D  &h_lbrc &t_rbrc   &kp N    &kp S     &bs_tilde
+        &kp LSHFT &kp SEMICOLON &kp Q     &kp J      &kp K   &kp X                      &kp HOME &kp PG_UP                           &kp B  &kp M   &kp W     &kp V    &kp Z     &kp RSHFT
+        &mo 2     &kp GRAVE     &kp CAPS  &kp LEFT   &kp RIGHT       &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp SPACE              &kp UP  &kp DOWN  &kp LBKT &kp RBKT  &mo 2
       >;
     };
+
     keypad {
       bindings = <
         &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans                                                           &mo 3 &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
@@ -60,3 +107,4 @@
     };
   };
 };
+
